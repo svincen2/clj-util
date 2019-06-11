@@ -1,0 +1,5 @@
+{:deps {;; Clojure
+        org.clojure/clojure {:mvn/version "1.10.0"}
+        org.clojure/data.json {:mvn/version "0.2.6"}
+        ;; Config
+        aero {:mvn/version "1.1.3"}}}
