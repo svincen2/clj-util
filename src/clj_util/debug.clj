@@ -10,6 +10,13 @@
   [x]
   `(println (quote ~x) ~x))
 
+(defmacro pprint-var
+  "Same as print-var, but uses pprint."
+  [x]
+  `(do
+     (println (quote ~x))
+     (clojure.pprint/pprint ~x)))
+
 (defmacro time-ms
   "Like Clojure's time fn, but instead of printing,
   returns a map of :time, :result."
