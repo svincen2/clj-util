@@ -1,0 +1,7 @@
+{:test/keyword #keyword #or [#prop "test.keyword" :default-value]
+ :test/long #long #or [#prop "test.long" 1000000]
+ :test/profile #profile {:dev 123
+                         :prod 456}
+ :test/map {:some-key #prop "test.map.some-key"
+            :some-other-profiled-key #profile {:dev "dev"
+                                               :prod "prod"}}}

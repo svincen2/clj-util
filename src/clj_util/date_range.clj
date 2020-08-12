@@ -1,6 +1,4 @@
 (ns clj-util.date-range
-  (:require [clj-util.io :refer [print-var]]
-            [clojure.java.io :as io])
   (:import [java.time LocalDate]))
 
 (defn days
