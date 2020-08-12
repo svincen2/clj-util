@@ -3,7 +3,7 @@
 (defn saturate-int
   "Saturate and int (like in signal processing).
   If i is not in range [lower, upper], saturates i to either lower or upper,
-  depending on if i is less that lower, or larger than upper, respectively."
+  depending on if i is less than lower, or larger than upper, respectively."
   [i [lower upper]]
   (-> i (min upper) (max lower)))
 
