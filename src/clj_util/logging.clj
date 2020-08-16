@@ -10,7 +10,7 @@
 (defn ^:private level->str
   [level]
   (let [color-fn (comp colors/bold
-                       colors/white
+                       colors/grey
                        (or ({:trace colors/on-blue
                              :debug colors/on-cyan
                              :info colors/on-green
@@ -18,7 +18,7 @@
                              :error colors/on-magenta
                              :fatal colors/on-red}
                             level)
-                           colors/grey))]
+                           colors/on-white))]
     (color-fn (str/upper-case (name level)))))
 
 (defn ^:private output-fn
