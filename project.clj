@@ -1,4 +1,4 @@
-(defproject org.clojars.sean-vincent/clj-util "0.2.2"
+(defproject org.clojars.sean-vincent/clj-util "0.3.0"
   :description "Some useful Clojure stuff"
   :url "https://github.com/svincen2/clj-util"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
