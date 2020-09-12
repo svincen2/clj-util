@@ -2,14 +2,13 @@
   (:require [clj-util.web.routes :as routes]
             [clj-util.web.response :as r]
             [clj-util.web.middleware :as m]
-            [shadow.http.push-state :as push-state]
-            [taoensso.timbre :as log]))
+            [shadow.http.push-state :as push-state]))
 
 (defn ^:private ring-handler
   [routes handlers]
   (let [router (routes/make-router routes)]
     (fn [{:keys [uri request-method] :as req}]
-      (let [{:keys [handler route-params]} (log/spy :info (router uri))
+      (let [{:keys [handler route-params]} (router uri)
             route-handlers (get handlers handler)
             f (get route-handlers request-method)]
         (if f
