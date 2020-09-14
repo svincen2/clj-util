@@ -4,14 +4,19 @@
             [clojure.string :as str]))
 
 ;; convenience 'aliases'
+(def response r/response)
 (def resource r/resource-response)
 (def content-type r/content-type)
 (def header r/header)
 (def status r/status)
 
+(defn content-length
+  [response length]
+  (header response "Content-Length" length))
+
 (defn edn-response
   [body]
-  (-> (r/response (if (string? body) body (pr-str body)))
+  (-> (response (if (string? body) body (pr-str body)))
       (content-type "application/edn")
       (header "Access-Control-Allow-Origin" "*")))
 
