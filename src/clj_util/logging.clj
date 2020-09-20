@@ -60,28 +60,32 @@
            (println (force output_))))})
 
 (defn init-cli!
-  []
-  (let [config {:level :debug
-                :ns-whitelist []
-                :ns-blacklist []
-                :middleware []
-                :timestamp-opts {:pattern "yyyy-MM-dd HH:mm:ss.SSS"
-                                 :locale (Locale/getDefault)
-                                 :timezone (TimeZone/getTimeZone "UTC")}
-                :output-fn output-fn
-                :appenders {:service (service-appender)}}]
-    (timbre/set-config! config)))
+  ([]
+   (init-cli! :info))
+  ([level]
+   (let [config {:level level
+                 :ns-whitelist []
+                 :ns-blacklist []
+                 :middleware []
+                 :timestamp-opts {:pattern "yyyy-MM-dd HH:mm:ss.SSS"
+                                  :locale (Locale/getDefault)
+                                  :timezone (TimeZone/getTimeZone "UTC")}
+                 :output-fn output-fn
+                 :appenders {:service (service-appender)}}]
+     (timbre/set-config! config))))
 
 (defn init-web!
-  [server-ns]
-  (let [config {:level :debug
-                :ns-whitelist []
-                :ns-blacklist []
-                :middleware []
-                :timestamp-opts {:pattern "yyyy-MM-dd HH:mm:ss.SSS"
-                                 :locale (Locale/getDefault)
-                                 :timezone (TimeZone/getTimeZone "UTC")}
-                :output-fn output-fn
-                :appenders {:service (service-appender)
-                            :server (server-appender server-ns)}}]
-    (timbre/set-config! config)))
+  ([server-ns]
+   (init-web! server-ns :info))
+  ([server-ns level]
+   (let [config {:level level
+                 :ns-whitelist []
+                 :ns-blacklist []
+                 :middleware []
+                 :timestamp-opts {:pattern "yyyy-MM-dd HH:mm:ss.SSS"
+                                  :locale (Locale/getDefault)
+                                  :timezone (TimeZone/getTimeZone "UTC")}
+                 :output-fn output-fn
+                 :appenders {:service (service-appender)
+                             :server (server-appender server-ns)}}]
+     (timbre/set-config! config))))
