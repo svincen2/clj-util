@@ -7,6 +7,7 @@
         com.taoensso/timbre {:mvn/version "4.10.0"}
         clojure-term-colors {:mvn/version "0.1.0"}
         ;; Database
+        honeysql {:mvn/version "1.0.444"}
         ragtime {:mvn/version "0.8.0"}
         ;; Web
         ring {:mvn/version "1.7.0"}
