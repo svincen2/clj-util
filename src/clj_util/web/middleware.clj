@@ -1,14 +1,15 @@
 (ns clj-util.web.middleware
   (:require [clojure.edn :as edn]
-            [ring.middleware.reload :as rm]))
+            [ring.middleware.reload :as rm]
+            [taoensso.timbre :as log]))
 
 (def wrap-reload rm/wrap-reload)
 
 (defn wrap-parse-edn-body
   [handler]
-  (fn [{:keys [body] :as request}]
+  (fn [{:keys [headers body] :as request}]
     (handler
-     (if body
+     (if (and (= "application/edn" (get headers "content-type")) body)
        (-> request
            (assoc :edn-body (edn/read-string (slurp body)))
            (dissoc :body))
