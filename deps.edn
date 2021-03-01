@@ -10,6 +10,6 @@
         honeysql {:mvn/version "1.0.444"}
         ragtime {:mvn/version "0.8.0"}
         ;; Web
-        ring {:mvn/version "1.7.0"}
+        ring {:mvn/version "1.9.1"}
         bidi {:mvn/version "2.1.6"}
         thheller/shadow-cljs {:mvn/version "2.10.19"}}}
